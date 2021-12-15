@@ -10,4 +10,5 @@
 ![image](https://cdn.discordapp.com/attachments/920375852628316213/920644392811892736/unknown.png)
 # Sunucu-Setup Komutu 
 - Sunucuda silinen herhangi bir rolü otomatik olarak config dosyasına bot yazar. Yazılmayan, değiştirmek istediğiniz kısımları .setup komutu ile düzenleyebilirsiniz.
+
 ![image](https://cdn.discordapp.com/attachments/920375852628316212/920644645669699594/unknown.png)

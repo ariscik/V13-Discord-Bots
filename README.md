@@ -16,7 +16,7 @@
 ![image](https://cdn.discordapp.com/attachments/920375852628316212/920644645669699594/unknown.png)
 
 # Yetkisinin Yetmediği - Bot Üstü - Güvenli Kişileri Banlama İşlemi 
-- Sunucuda güvenli listede bulunan birisi 2'den fazla rol silerse taç hesabı olarak belirlenen hesaba girerek ban atıyor ve logluyor. Eğer bir kullanıcı rol silerse ve botun üstündeyse, botun banlama yetkisi yok ise bot taç hesabına giriş yaparak o kişiyi banlıyor.
+- Sunucuda güvenli listede bulunan birisi 2'den fazla rol silerse taç hesabı olarak belirlenen hesaba girerek ban atıyor ve logluyor. Eğer bir kullanıcı rol silerse ve botun üstündeyse, botun banlama yetkisi yok ise bot taç hesabına giriş yaparak o kişiyi banlıyor..
 
 ![image](https://cdn.discordapp.com/attachments/846825573044846642/927492254552182794/Tacban.PNG)
 ![image](https://cdn.discordapp.com/attachments/846825573044846642/927492254074044416/Tacban2.PNG)

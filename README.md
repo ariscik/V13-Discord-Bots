@@ -1,7 +1,5 @@
 # V13 ARIS LESNAR BOTS
 
-Çok yakında 💯. Sağlam yıldız gelirse buraya atabilirim. Detaylı fotoğrafları buraya gene atıcam. Geliştirdikçe fotoğraflarını paylaşırım. Mutlu günler <31
-
 # Denetim Komutu 
 - Denetim komutu ile son 1 saatte silinen 10 rolü-kanalı ve toplamda silinen 10 rolü-kanalı görebilir. Menüden seçim ile kurabilirsiniz.
 - 

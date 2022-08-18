@@ -25,7 +25,7 @@
 
 # Panel
 - Paneli hem öğrenme hemde kendimi deneme amaçlı yapmıştım. Çok çok iyi değil biliyorum ama öğrenirken denediğim bir kaç şey işte. Bunun boş altyapısı için Stark a ve yaparken yardım eden shuinore kardeşime teşekkür ederim. 
-- Berat kardeşime de fikirleri ve yardımları için teşekkür ederim.
+- Bwrat kardeşime de fikirleri ve yardımları için teşekkür ederim.
 
 # Kalanlar;
 - Klasik reg mod komutları bunları da kendine göre ister düzenle ister kalsın bir kaç sorun olabilir belki ama sende deneyerek çözerek tamamla.

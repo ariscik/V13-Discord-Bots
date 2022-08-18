@@ -1,25 +1,35 @@
 # V13 ARIS LESNAR BOTS
 
-# Denetim Komutu 
-- Denetim komutu ile son 1 saatte silinen 10 rolü-kanalı ve toplamda silinen 10 rolü-kanalı görebilir. Menüden seçim ile kurabilirsiniz.
-- 
-![image](https://cdn.discordapp.com/attachments/920375852628316212/920644038338695168/unknown.png)
-# Web Tarayıcı Koruması 
-- Web tarayıcıdan giriş yapma koruması ile sekme açmayı engelleyebilirsiniz.
-- 
-![image](https://cdn.discordapp.com/attachments/920375852628316213/920644392811892736/unknown.png)
-# Sunucu-Setup Komutu 
-- Sunucuda silinen herhangi bir rolü otomatik olarak config dosyasına bot yazar. Yazılmayan, değiştirmek istediğiniz kısımları .setup komutu ile düzenleyebilirsiniz.
+!! APTAL SAPTAL İNSANLARIN REPOLARINDAN ARİS LESNAR BOTS DİYEREK İNDİRİP RAT YEMEYİN DİYE PAYLAŞIYORUM TEPE TEPE KULLANIN AMK BOTUNU !!
 
-![image](https://cdn.discordapp.com/attachments/920375852628316212/920644645669699594/unknown.png)
+# Botun içindeki bazı özellikler;
+- Sunucu korumalarını açma/kapatma ( Butonlu )
+- Komutla config doldurma ( Sunucu için gerekli tüm rol/kanal vs şeyleri kurabilirsiniz )
+- Komutla markete ürün ekleme silme otomatik alışveriş. Boş boş config dosyasına yazmaya gerek kalmadan komut ile ürün ekleyebilirsiniz.
 
-# Yetkisinin Yetmediği - Bot Üstü - Güvenli Kişileri Banlama İşlemi 
-- Sunucuda güvenli listede bulunan birisi 2'den fazla rol silerse taç hesabı olarak belirlenen hesaba girerek ban atıyor ve logluyor. Eğer bir kullanıcı rol silerse ve botun üstündeyse, botun banlama yetkisi yok ise bot taç hesabına giriş yaparak o kişiyi banlıyor.
+# Oto Yetki Sistemi
+- Otomatik yetki atlama sistemi vardır. Zamanında bu botu geliştirdiğimde bir gün çalınır zaten diyerek bunu otomatiğe bağlamadım ve bazı aptallar çalışmadığını iddia etmiş çok basit bir konusu var git mongodb class a false olanı true yap aptal mısın aq 
+- Coinler vs config.js de değiştirme öyle kalsın ne uğraşcan
+- .setrank ile rankları kendin ekleyebilirsin.
 
-![image](https://cdn.discordapp.com/attachments/846825573044846642/927492254552182794/Tacban.PNG)
-![image](https://cdn.discordapp.com/attachments/846825573044846642/927492254074044416/Tacban2.PNG)
+# Level Sistemi
+- Normal chat bronze voice bronze vs verir ama bunu da mongodb den false olanı true yap. Komutunu yapabiliyorsan kalk yap daha ne istiyon :d
 
-# URL Kontrol
-- Sürekli olarak URL kontrolü yaparak URL eğer doğruysa log atıp, URL belirtilenle eşleşmezse direk URL yi alabilme özelliği. Bu sayede silindiği anda bile olsa kontrol sayesinde URL geri alınıyor. URL kontrolleri dağıtıcı botlarla yapılıyor. Ne kadar çok dağıtıcı bot o kadar kontrol :)
+- Offline yetkiliden rolleri çeker log atar online olunca log atıp tekrar verir rolleri.
 
-![image](https://cdn.discordapp.com/attachments/846825573044846642/927492254317289493/urlkontrol.PNG)
+# Guard
+- Guardlar butonludur. Belirli kişiler kullanabilir. 
+- Taç ban vardır. Bunun için Stark arkadaşıma çok teşekkür ederim.
+
+# Panel
+- Paneli hem öğrenme hemde kendimi deneme amaçlı yapmıştım. Çok çok iyi değil biliyorum ama öğrenirken denediğim bir kaç şey işte. Bunun boş altyapısı için Stark a ve yaparken yardım eden shuinore kardeşime teşekkür ederim. 
+- Berat kardeşime de fikirleri ve yardımları için teşekkür ederim.
+
+# Kalanlar;
+- Klasik reg mod komutları bunları da kendine göre ister düzenle ister kalsın bir kaç sorun olabilir belki ama sende deneyerek çözerek tamamla.
+
+# Dağıtıcı Botlar
+- Bu botlar klasik rol vs dağıtır.
+- Bu botlar sayesinde confige girdiğiniz url yi belirlediğiniz her saniyede kontrol eder tüm botlarla birlikte. Eğer yoksa almaya çalışır. Kolay kolay url vermez. Deneyip kendinize göre dağıtıcı bot token sayısı oluşturun ve girin ne kadar çok o kadar iyi.
+
+- Bu botta bana yardım eden, küçükte olsa fikir veren tüm arkadaşlarıma teşekkürlerimi iletiyorum. Geliştirerek, ekleyerek çok şey yaptım. Artık siz alabilirsiniz çünkü discord ile işim bitti. Mutlu günler dilerim potçular.

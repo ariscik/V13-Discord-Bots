@@ -7,6 +7,9 @@
 - Komutla config doldurma ( Sunucu için gerekli tüm rol/kanal vs şeyleri kurabilirsiniz )
 - Komutla markete ürün ekleme silme otomatik alışveriş. Boş boş config dosyasına yazmaya gerek kalmadan komut ile ürün ekleyebilirsiniz.
 
+
+- Tagları eklemek içinde gidin mongodb compass indir gir ha yok ben uğraşmam diyorsan komut yap bende komutla uğraşmak istemedim 
+
 # Oto Yetki Sistemi
 - Otomatik yetki atlama sistemi vardır. Zamanında bu botu geliştirdiğimde bir gün çalınır zaten diyerek bunu otomatiğe bağlamadım ve bazı aptallar çalışmadığını iddia etmiş çok basit bir konusu var git mongodb class a false olanı true yap aptal mısın aq 
 - Coinler vs config.js de değiştirme öyle kalsın ne uğraşcan

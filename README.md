@@ -2,6 +2,8 @@
 
 !! APTAL SAPTAL İNSANLARIN REPOLARINDAN ARİS LESNAR BOTS DİYEREK İNDİRİP RAT YEMEYİN DİYE PAYLAŞIYORUM TEPE TEPE KULLANIN AMK BOTUNU !!
 
+# Npm i yaz bekle sonra npm start yaz kullan bunu yapamıyorsan bana yazma aq
+
 # Botun içindeki bazı özellikler;
 - Sunucu korumalarını açma/kapatma ( Butonlu )
 - Komutla config doldurma ( Sunucu için gerekli tüm rol/kanal vs şeyleri kurabilirsiniz )

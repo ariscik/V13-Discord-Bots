@@ -15,9 +15,8 @@
 # Level Sistemi
 - Normal chat bronze voice bronze vs verir ama bunu da mongodb den false olanı true yap. Komutunu yapabiliyorsan kalk yap daha ne istiyon :d
 
-- Offline yetkiliden rolleri çeker log atar online olunca log atıp tekrar verir rolleri.
-
 # Guard
+- Offline yetkiliden rolleri çeker log atar online olunca log atıp tekrar verir rolleri.
 - Guardlar butonludur. Belirli kişiler kullanabilir. 
 - Taç ban vardır. Bunun için Stark arkadaşıma çok teşekkür ederim.
 

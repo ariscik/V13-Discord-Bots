@@ -1,0 +1,28 @@
+{
+  "guildID": "",
+  "prefix": [".", "!"],
+  "root": [""],
+  "Founders": [""],
+  "muteLimit": 3, "banLimit": 2, "jailLimit": 2, "kayitsizLimit": 2, "cmdLimit": 3, "Sure": 60, "userTime": 604800000, "messageCount": 1, "messageCoin": 1, "messageDolar": 1, "voiceCount": 1, "voiceCoin": 1, "voiceDolar": 1, "registerCoin": 2, "taggedCoin": 1, "inviteCoin": 1,
+  "durum": { "name": "Aris 💜 Lesnar","url": "https://www.twitch.tv/arislesnar", "type": "STREAMING" },
+  "MongoURL": "",
+  "guildURL": "1953",
+  "bots": [""],
+  "clientID": "",
+  "clientSecret": "",
+  "callbackURL": "",
+
+  "Moderation":"",
+  "Guard_I":"",
+  "Guard_II":"",
+  "Guard_III":"",
+  "Guard_IV":"",
+  "Tokens": [
+      "",
+      "",
+      ""
+  ]
+}
+
+
+

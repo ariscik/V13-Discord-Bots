@@ -28,7 +28,7 @@ class GuildMemberAdd {
                 //if (member.manageable) member.setNickname(`${setNickname}`)
                 const kontrol = new Date().getTime() - member.user.createdAt.getTime() < config.userTime ? `Şüpheli ${emojis.iptal}` : `**Hesap Durumu:** Güvenli ${emojis.onay}`
                 if (aris.welcomeChannel) client.channels.cache.get(aris.welcomeChannel).send(`${emojis.star} **${member}** \`(${member.id})\` **${member.guild.name}** Sunucumuza hoş geldin!\n\nHesabın **${memberDay} ${memberMonth} ${memberDate}** tarihinde oluşturulmuş! ${kontrol}\n\nSeninle birlikte \`${memberCount}\` kişi olduk. Sol taraftaki \`Confirmed\` odalarından birisine girerek kayıt olabilirsin!\n\nSunucu kurallarımızı okumayı unutmamalısın! İyi eğlenceler! :tada: :tada: <@&${aris.registerHammer}>`)
-                client.channels.cache.get("1003273203080245298").send({ content: `${member}` }).sil(4)
+
 				const channel = client.channels.cache.get(aris.inviteLog);
                 if (!channel) return;
                 let entry = await member.guild.fetchAuditLogs({ type: 'BOT_ADD' }).then(audit => audit.entries.first());

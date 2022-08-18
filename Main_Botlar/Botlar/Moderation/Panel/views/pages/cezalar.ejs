@@ -1,0 +1,103 @@
+
+
+
+    <%- include('../ek/header.ejs', {bot, user}) %>
+<center>
+
+<div class="container" style="text-align: center;">
+<div class=" align-items-center" >
+<div class="col-md-4">
+  <div class="kutu">
+    <h3 style=" color: #0561ff;  font-size: 35px;">
+            <b><strong> Aktif Mute İşlemleri </strong> </b>
+            </h3>
+            <span  class="bilgi">Ceza Uygulanan Kişi</span>
+            <span  class="bilgi">Ceza Uygulayan Yetkili</span>
+            <span  class="bilgi">Ceza Sebebi</span>
+            <hr>
+            <% if(data) { %> 
+                <% data.filter(e => e.Aktif == true).map(a => { %>
+                        <img src="<%= bot.guilds.cache.get(config.guildID).members.cache.get(a.userID).user.avatarURL() %>">
+                        <span class="datab"> <%= bot.guilds.cache.get(config.guildID).members.cache.get(a.userID).user.username %></span>
+                        <img src="<%= bot.guilds.cache.get(config.guildID).members.cache.get(a.Yetkili).user.avatarURL() %>">
+                        <span class="datab"> <%= bot.guilds.cache.get(config.guildID).members.cache.get(a.Yetkili).user.username %></span>
+                        <span class="datab"> <%= a.Sebep %> </span>
+                        <hr>
+                    <% }) %>
+                <% } %>
+        
+<!--
+            <% if(data) { %> 
+                <% data.filter(e => e.Aktif == true).map(a => { %>
+                        <span style="color:red; font-size: 500px;"> <%= a.userID %></span>
+                    <% }) %>
+                <% } %>
+
+    data.filter(e => e.Aktif == true).map(a => console.log(a.userID))
+-->
+
+
+<!-- 
+                <% if (data) { %>
+                <% data.map(e => { %>
+                    <% if (e.Ceza == "CHATMUTE" && e.Aktif == true) { %>
+                        <span>
+                            <%= e.userID %>
+                        </span>
+                    <% } %>
+                <% }) %> 
+                <% } %>
+-->
+
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="kutu">
+    <h3 style=" color: #0561ff;  font-size: 35px;">
+            <b><strong> Aktif Üye <br> <%= bot.guilds.cache.get(config.guildID).members.cache.filter(m => m.presence && m.presence.status !== "offline").size || 0 %> </strong> </b>
+            </h3>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="kutu">
+    <h3 style=" color: #0561ff;  font-size: 35px;">
+            <b><strong> Toplam Ses <br> <%= bot.guilds.cache.get(config.guildID).members.cache.filter(k => k.voice.channel).size || 0 %></strong> </b>
+            </h3>
+  </div>
+</div>
+</div>
+</div>
+</center>
+
+<br><br><br><br><br>
+
+<style>
+
+.kutu {
+   min-width: 1000px;
+   height: 300px;
+   padding: 10px;
+   background: #191d2f;
+   border-radius: 15px;
+   margin: 10px;
+   text-align: center;
+}
+
+.kutu .bilgi {
+    color: white;
+    padding: 70px;
+}
+
+.kutu .datab {
+    color: white;
+    padding: 90px;
+}
+
+.kutu img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 0;
+}
+
+</style>

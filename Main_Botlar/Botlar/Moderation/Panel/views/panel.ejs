@@ -1,0 +1,49 @@
+
+
+
+<%- include('ek/header.ejs', {bot, user}) %>
+<center>
+
+<div class="container" style="text-align: center;">
+<div class="row justify-content-center align-items-center" >
+<div class="col-md-4">
+  <div class="kutu">
+    <h3 style=" color: #0561ff;  font-size: 35px;">
+            <b><strong> Toplam Üye <br> <%= bot.guilds.cache.get(config.guildID).members.cache.size || 0 %></strong> </b>
+            </h3>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="kutu">
+    <h3 style=" color: #0561ff;  font-size: 35px;">
+            <b><strong> Aktif Üye <br> <%= bot.guilds.cache.get(config.guildID).members.cache.filter(m => m.presence && m.presence.status !== "offline").size || 0 %> </strong> </b>
+            </h3>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="kutu">
+    <h3 style=" color: #0561ff;  font-size: 35px;">
+            <b><strong> Toplam Ses <br> <%= bot.guilds.cache.get(config.guildID).members.cache.filter(k => k.voice.channel).size || 0 %></strong> </b>
+            </h3>
+  </div>
+</div>
+</div>
+</div>
+</center>
+
+<br><br><br><br><br>
+
+<style>
+
+.kutu {
+   width: 320px;
+   float:left;
+   height: 150px;
+   padding: 10px;
+   background: #191d2f;
+   border-radius: 15px;
+   margin: 10px;
+   text-align: center;
+}
+
+</style>

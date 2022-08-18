@@ -1,0 +1,175 @@
+<% let sw=global.client.guilds.cache.get(config.guildID) %>
+  <%- include('../ek/header.ejs', {bot, user}) %>
+    <center>
+
+      <div class="container" style="text-align: center;">
+        <div class="row justify-content-center align-items-center">
+
+
+          <div class="box">
+            <form action="guvenlikaydet" method="POST">
+              <label for="inputState">Güvenliden Çıkarılacak Kişiyi Seç!</label>
+              <select id="guvenli-cikar" name="guvenlicikar" class="form-control" required>
+                <option selected disabled>Güvenliden Çıkarılacak Kişiyi Menüden Seç!</option>
+                <% arislesnar.WhiteListMembers.map(user=> { %>
+                  <option value="<%=user.id%>">
+                    <%=user.name%>
+                  </option>
+                  <% }) %>
+              </select>
+              <br>
+              <label for="inputState">Güvenliye Eklenecek Kişiyi Seç!</label>
+              <select id="guvenli-ekle" name="guvenliekle" class="form-control" required>
+                <option selected disabled>Güvenliye Eklenecek Kişiyi Menüden Seç!</option>
+                <% sw.roles.cache.filter(a=> !a.managed && yetkiPermleri.some(yetki => a.permissions.has(yetki))).filter(a => a.name !== "@everyone").map(id => { id.members.map(m => { %>
+                  <option value="<%=m.id%>">
+                    <%=m.user.username%>
+                  </option>
+                  <% }) }) %>
+              </select>
+              <br>
+              <label for="inputState" style="color: red; font-size:15px;"><i class="fas fa-info-circle"></i>*Menüden güvenli
+                eklenecek veya çıkarılacak kişiyi seçip bu butonu kullanın!</label>
+              <button type="submit" id="button">Güvenli Ekle/Çıkar</button>
+            </form>
+          </div>
+
+          <div class="box">
+            <form action="rolkanalkur" method="POST">
+              <label for="inputState">Silinen Son 30 Kanal!</label>
+              <select id="silinen-kanal" name="silinenkanal" class="form-control" required>
+                <option selected disabled>Silinen Son 30 Kanalı Bu Menüden Görebilirsin!</option>
+                <% caudit.map(e=> { %>
+                  <option value="<%=e.target.id%>">
+                    <%=e.changes.filter(e=> e.key === 'name').map(e => e.old)%>
+                  </option>
+                  <% }) %>
+              </select>
+              <br>
+              <label for="inputState">Silinen Son 30 Rol!</label>
+              <select id="silinen-rol" name="silinenrol" class="form-control" required>
+                <option selected disabled>Silinen Son 30 Rolü Bu Menüden Görebilirsin!</option>
+                <% raudit.map(e=> { %>
+                  <option value="<%=e.target.id%>">
+                    <%=e.changes.filter(e=> e.key === 'name').map(e => e.old)%>
+                  </option>
+                  <% }) %>
+              </select>
+              <br>
+              <label for="inputState" style="color: red; font-size:15px;"><i class="fas fa-info-circle"></i>*Menüden kurmak
+                için bir rol veya kanal seçip bu butonu kullanın!</label>
+              <button type="submit" id="button">ROL/KANAL KUR!</button>
+            </form>
+          </div>
+
+          <div class="box">
+            <label>Backup Menüsü</label><br><b style="color:white;font-size:10px;">*Bu menüden datada olup, sunucuda olmayan kanalları ve rolleri kontrol edebilirsin!</b>
+            <form action="rolkanalkur">
+              <label for="inputState" style="color: red; font-size:15px;"><i class="fas fa-info-circle"></i>*Rolleri kontrol
+                etmek için bu butonu kullanın!</label>
+                <br>
+              <button type="submit" id="button">Rol Kontrol!</button>
+            </form>
+            <br>
+            <form action="rolkanalkur">
+              <label for="inputState" style="color: red; font-size:15px;"><i class="fas fa-info-circle"></i>*Kanalları kontrol
+                etmek için bu butonu kullanın!</label>
+                <br>
+              <button type="submit" id="button">Kanal Kontrol!</button>
+            </form>
+            <br>
+            <form action="rolkanalkur">
+              <label for="inputState" style="color: red; font-size:15px;"><i class="fas fa-info-circle"></i>*Backup almak
+                için bu butonu kullanın!</label>
+                <br>
+              <button type="submit" id="button">Backup Al!</button>
+            </form>
+          </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </center>
+
+    <style>
+      .box select {
+        text-align: center;
+        background-color: #343a4088;
+        color: white;
+      }
+
+      .box label {
+        color: white;
+        font-size: 25px;
+      }
+
+      .box {
+        width: 550px;
+        float: left;
+        height: 355px;
+        padding: 20px;
+        background: #343a40;
+        border-radius: 15px;
+        margin: 10px;
+        text-align: center;
+      }
+
+      #button {
+        width: 150px;
+        height: 35px;
+        border-radius: 150px;
+        position: relative;
+        background: linear-gradient(to top right, rgb(74, 75, 114) 0%, rgb(63, 64, 87) 100%);
+        cursor: pointer;
+        line-height: 20px;
+        color: rgba(235, 235, 235, 1);
+      }
+
+      #button:before {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        display: block;
+        width: 80%;
+        height: 70%;
+        top: 15%;
+        left: 10%;
+        transition: 0.3s opacity ease-in-out;
+        filter: blur(15px);
+        opacity: 0;
+        background: linear-gradient(to top right, rgb(39, 42, 246) 0%, rgb(39, 42, 246) 100%);
+        color: rgba(235, 235, 235, 1);
+      }
+
+      #button:hover:before {
+        opacity: 1;
+        transition: 0.3s opacity ease-in-out;
+        filter: blur(25px);
+        background: linear-gradient(to top right, rgb(39, 42, 246) 0%, rgb(39, 42, 246) 100%);
+      }
+
+      #button:after {
+        text-align: center;
+        line-height: 40px;
+        font-size: 18px;
+        color: rgba(235, 235, 235, 1);
+        font-weight: bold;
+        z-index: 5;
+        position: absolute;
+        display: block;
+        border-radius: 180px;
+        width: 92%;
+        height: 80%;
+        top: 2%;
+        left: 4%;
+        color: white;
+      }
+    </style>

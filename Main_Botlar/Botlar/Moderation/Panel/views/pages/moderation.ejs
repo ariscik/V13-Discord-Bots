@@ -1,0 +1,342 @@
+<% let sw=global.client.guilds.cache.get(config.guildID) %>
+    <%- include('../ek/header.ejs', {bot, user}) %>
+
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+
+
+                <div class="box">
+                    <form action="yetkilikaydet" method="POST">
+                        <label for="inputState" style="position: relative; left: 250px;">Yetkili Rol Ayarlamaları
+                            Yap!</label>
+
+                        <br><br><br><label for="inputState" style="font-size: 15px;">Jail Yetkili Rolü Seç!</label>
+                        <select id="jaily-rol" name="jailyrol" class="form-control" required>
+                            <option selected disabled>Jail Yetkili Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Ban Yetkili Rolü Seç!</label>
+                        <select id="bany-rol" name="banyrol" class="form-control" required>
+                            <option selected disabled>Ban Yetkili Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Mute Yetkili Rolü Seç!</label>
+                        <select id="mutey-rol" name="muteyrol" class="form-control" required>
+                            <option selected disabled>Mute Yetkili Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">V Mute Yetkili Rolü Seç!</label>
+                        <select id="vmutey-rol" name="vmuteyrol" class="form-control" required>
+                            <option selected disabled>Voice Mute Yetkili Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Clown Yetkili Rolü Seç!</label>
+                        <select id="clowny-rol" name="clownyrol" class="form-control" required>
+                            <option selected disabled>Clown Yetkili Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Move Yetkili Rolü Seç!</label>
+                        <select id="movey-rol" name="moveyrol" class="form-control" required>
+                            <option selected disabled>Move Yetkili Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+
+                        <label for="inputState"
+                            style="color: red; font-size:15px; position: relative; padding-left: 200px;"><i
+                                class="fas fa-info-circle"></i>*Menüden yetkili
+                            permlerini seçip aşağıdaki butonu kullanabilirsiniz!</label>
+                        <button type="submit" id="button" style="position: relative; top: 45px; right: 300px;">KAYDET</button>
+                    </form>
+                </div>
+
+                <div class="box">
+                    <form action="genelrolkaydet" method="POST">
+                        <label for="inputState" style="position: relative; left: 250px;">Genel Rol Ayarlamaları
+                            Yap!</label>
+
+                        <br><br><br><label for="inputState" style="font-size: 15px;">Jail Rolü Seç!</label>
+                        <select id="jail-rol" name="jailrol" class="form-control" required>
+                            <option selected disabled>Jail Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Voice Mute Rolü Seç!</label>
+                        <select id="vmute-rol" name="vmuterol" class="form-control" required>
+                            <option selected disabled>Voice Mute Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Mute Rolü Seç!</label>
+                        <select id="mute-rol" name="muterol" class="form-control" required>
+                            <option selected disabled>Mute Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Taglı Rolü Seç!</label>
+                        <select id="tag-rol" name="tagrol" class="form-control" required>
+                            <option selected disabled>Taglı Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Booster Rolü Seç!</label>
+                        <select id="booster-rol" name="boosterrol" class="form-control" required>
+                            <option selected disabled>Booster Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+
+                        <label for="inputState"
+                            style="color: red; font-size:15px; position: relative; padding-left: 175px;"><i
+                                class="fas fa-info-circle"></i>*Menüden gerekli
+                            rolleri seçip aşağıdaki butonu kullanabilirsiniz!</label>
+                        <button type="submit" id="button">KAYDET</button>
+                    </form>
+                </div>
+
+                <div class="box" style="height: 475px;">
+                    <form action="genellogkaydet" method="POST">
+                        <label for="inputState" style="position: relative; left: 250px;">Genel Log Ayarlamaları
+                            Yap!</label>
+
+                        <br><br><br><label for="inputState" style="font-size: 15px;">Jail Log Kanalı Seç!</label>
+                        <select id="jail-log" name="jaillog" class="form-control" required>
+                            <option selected disabled>Jail Log Seç!</option>
+                            <% sw.channels.cache.filter(a=> a.type === "GUILD_TEXT").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Mute Log Kanalı Seç!</label>
+                        <select id="mute-log" name="mutelog" class="form-control" required>
+                            <option selected disabled>Mute Log Seç!</option>
+                            <% sw.channels.cache.filter(a=> a.type === "GUILD_TEXT").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Ban Log Kanalı Seç!</label>
+                        <select id="ban-log" name="banlog" class="form-control" required>
+                            <option selected disabled>Ban Log Seç!</option>
+                            <% sw.channels.cache.filter(a=> a.type === "GUILD_TEXT").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Tag Log Seç!</label>
+                        <select id="tag-rol" name="tagrol" class="form-control" required>
+                            <option selected disabled>Tag Log Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Denetim Kanalı Seç!</label>
+                        <select id="denetim-log" name="denetimlog" class="form-control" required>
+                            <option selected disabled>Denetim Log Seç!</option>
+                            <% sw.channels.cache.filter(a=> a.type === "GUILD_TEXT").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Mesaj Log Kanalı Seç!</label>
+                        <select id="message-log" name="messagelog" class="form-control" required>
+                            <option selected disabled>Mesaj Log Seç!</option>
+                            <% sw.channels.cache.filter(a=> a.type === "GUILD_TEXT").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Ses Log Kanalı Seç!</label>
+                        <select id="voice-log" name="voicelog" class="form-control" required>
+                            <option selected disabled>Ses Log Seç!</option>
+                            <% sw.channels.cache.filter(a=> a.type === "GUILD_TEXT").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        
+                        <label for="inputState" style="font-size: 15px;">Rol Log Kanalı Seç!</label>
+                        <select id="rol-log" name="rollog" class="form-control" required>
+                            <option selected disabled>Rol Log Seç!</option>
+                            <% sw.channels.cache.filter(a=> a.type === "GUILD_TEXT").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Guard Log Kanalı Seç!</label>
+                        <select id="rol-log" name="rollog" class="form-control" required>
+                            <option selected disabled>Guard Log Seç!</option>
+                            <% sw.channels.cache.filter(a=> a.type === "GUILD_TEXT").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Bot Ses Kanalı Seç!</label>
+                        <select id="bot-ses" name="botses" class="form-control" required>
+                            <option selected disabled>Bot Ses Kanalı Seç!</option>
+                            <% sw.channels.cache.filter(a=> a.type === "GUILD_VOICE").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState"
+                            style="color: red; font-size:15px; position: relative; padding-left: 175px;"><i
+                                class="fas fa-info-circle"></i>*Menüden gerekli
+                            rolleri seçip aşağıdaki butonu kullanabilirsiniz!</label>
+                        <button type="submit" id="button" style="top: 45px; right: 300px;">KAYDET</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <style>
+            .box select {
+                background-color: #343a4088;
+                color: white;
+                width: 200px;
+                float: left;
+                margin: 10px 20px 10px 10px;
+            }
+
+            .box label {
+                color: white;
+                font-size: 25px;
+                float: left;
+                margin: 10px 20px 10px 10px;
+                padding: 7px;
+            }
+
+            .box {
+                width: 900px;
+                float: left;
+                height: 355px;
+                padding: 20px;
+                background: #343a40;
+                border-radius: 15px;
+                margin: 10px;
+            }
+
+            #button {
+                width: 150px;
+                height: 35px;
+                border-radius: 150px;
+                position: relative;
+                background: linear-gradient(to top right, rgb(74, 75, 114) 0%, rgb(63, 64, 87) 100%);
+                cursor: pointer;
+                line-height: 20px;
+                color: rgba(235, 235, 235, 1);
+                top: 100px;
+                right: 75px;
+            }
+
+            #button:before {
+                content: '';
+                z-index: 1;
+                position: absolute;
+                display: block;
+                width: 80%;
+                height: 70%;
+                top: 15%;
+                left: 10%;
+                transition: 0.3s opacity ease-in-out;
+                filter: blur(15px);
+                opacity: 0;
+                background: linear-gradient(to top right, rgb(39, 42, 246) 0%, rgb(39, 42, 246) 100%);
+                color: rgba(235, 235, 235, 1);
+            }
+
+            #button:hover:before {
+                opacity: 1;
+                transition: 0.3s opacity ease-in-out;
+                filter: blur(25px);
+                background: linear-gradient(to top right, rgb(39, 42, 246) 0%, rgb(39, 42, 246) 100%);
+            }
+
+            #button:after {
+                text-align: center;
+                line-height: 40px;
+                font-size: 18px;
+                color: rgba(235, 235, 235, 1);
+                font-weight: bold;
+                z-index: 5;
+                position: absolute;
+                display: block;
+                border-radius: 180px;
+                width: 92%;
+                height: 80%;
+                top: 2%;
+                left: 4%;
+                color: white;
+            }
+        </style>

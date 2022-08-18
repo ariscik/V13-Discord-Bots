@@ -1,0 +1,177 @@
+<% let sw=global.client.guilds.cache.get(config.guildID) %>
+    <%- include('../ek/header.ejs', {bot, user}) %>
+
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+
+
+                <div class="box">
+                    <form action="registerkaydet" method="POST">
+                        <label for="inputState" style="position: relative; left: 250px;">Register Ayarlamaları
+                            Yap!</label>
+
+                        <br><br><br><label for="inputState" style="font-size: 15px;">Register Yetkili Rolü Seç!</label>
+                        <select id="registery-rol" name="registeryetkili" class="form-control" required>
+                            <option selected disabled>Register Yetkili Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Kayıtsız Rolü Seç!</label>
+                        <select id="kayitsiz-rol" name="kayitsizrol" class="form-control" required>
+                            <option selected disabled>Kayıtsız Rolü Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Teyit Kanalı Seç!</label>
+                        <select id="teyit-kanali" name="teyitkanali" class="form-control" required>
+                            <option selected disabled>Teyit Kanalı Seç!</option>
+                            <% sw.channels.cache.filter(a=> a.type === "GUILD_TEXT").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+
+                        <label for="inputState" style="font-size: 15px;">Invite Log Kanalı Seç!</label>
+                        <select id="invite-log" name="invitelog" class="form-control" required>
+                            <option selected disabled>Invite Log Seç!</option>
+                            <% sw.channels.cache.filter(a=> a.type === "GUILD_TEXT").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px;">Genel Sohbet Kanalı Seç!</label>
+                        <select id="genel-chat" name="genelchat" class="form-control" required>
+                            <option selected disabled>Genel Sohbet Seç!</option>
+                            <% sw.channels.cache.filter(a=> a.type === "GUILD_TEXT").map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+                        <label for="inputState" style="font-size: 15px; position: relative; top: 140px;">Erkek Rolleri Seç!</label>
+                        <select style="position: relative; top:160px;" id="erkek-rol" name="erkekrolleri" class="form-control" required multiple size="5">
+                            <option selected disabled>Erkek Rolleri Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").sort().reverse().map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+
+                        <label for="inputState" style="font-size: 15px;">Kadın Rolleri Seç!</label>
+                        <select id="kadin-rol" name="kadinrolleri" class="form-control" required multiple size="5">
+                            <option selected disabled>Kadın Rolleri Seç!</option>
+                            <% sw.roles.cache.filter(a=> !a.managed).filter(a => a.name !== "@everyone").sort().reverse().map(id => { %>
+                                <option value="<%=id.id%>">
+                                    <%=id.name%>
+                                </option>
+                                <% }) %>
+                        </select>
+
+
+                        <label for="inputState"
+                            style="color: red; font-size:15px; position: relative; padding-left: 200px;"><i
+                                class="fas fa-info-circle"></i>*Menüden gerekli
+                            ayarlamaları seçip aşağıdaki butonu kullanabilirsiniz!</label>
+                        <button type="submit" id="button">KAYDET</button>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+
+        <style>
+            .box select {
+                background-color: #343a4088;
+                color: white;
+                width: 200px;
+                float: left;
+                margin: 10px 20px 10px 10px;
+            }
+
+            .box label {
+                color: white;
+                font-size: 25px;
+                float: left;
+                margin: 10px 20px 10px 10px;
+                padding: 7px;
+            }
+
+            .box {
+                width: 900px;
+                float: left;
+                height: 650px;
+                padding: 20px;
+                background: #343a40;
+                border-radius: 15px;
+                margin: 10px;
+            }
+
+            #button {
+                width: 150px;
+                height: 35px;
+                border-radius: 150px;
+                position: relative;
+                background: linear-gradient(to top right, rgb(74, 75, 114) 0%, rgb(63, 64, 87) 100%);
+                cursor: pointer;
+                line-height: 20px;
+                color: rgba(235, 235, 235, 1);
+                top: 225px;
+                right: 60px;
+            }
+
+            #button:before {
+                content: '';
+                z-index: 1;
+                position: absolute;
+                display: block;
+                width: 80%;
+                height: 70%;
+                top: 15%;
+                left: 10%;
+                transition: 0.3s opacity ease-in-out;
+                filter: blur(15px);
+                opacity: 0;
+                background: linear-gradient(to top right, rgb(39, 42, 246) 0%, rgb(39, 42, 246) 100%);
+                color: rgba(235, 235, 235, 1);
+            }
+
+            #button:hover:before {
+                opacity: 1;
+                transition: 0.3s opacity ease-in-out;
+                filter: blur(25px);
+                background: linear-gradient(to top right, rgb(39, 42, 246) 0%, rgb(39, 42, 246) 100%);
+            }
+
+            #button:after {
+                text-align: center;
+                line-height: 40px;
+                font-size: 18px;
+                color: rgba(235, 235, 235, 1);
+                font-weight: bold;
+                z-index: 5;
+                position: absolute;
+                display: block;
+                border-radius: 180px;
+                width: 92%;
+                height: 80%;
+                top: 2%;
+                left: 4%;
+                color: white;
+            }
+        </style>

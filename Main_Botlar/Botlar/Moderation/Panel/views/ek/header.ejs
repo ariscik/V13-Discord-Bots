@@ -1,0 +1,323 @@
+<% let sw=global.client.guilds.cache.get(config.guildID) %>
+
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Aris Lesnar | Admin Panel</title>
+  </head>
+
+  <body id="body-pd"
+    style=" background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgBJ7caTDMlx-xbny0iqOpGQVZ8iaPrzZ6YA&usqp=CAU);">
+    <header class="header" id="header">
+      <div class="header__toggle">
+        <i class='bx bx-menu' id="header-toggle"></i>
+      </div>
+
+      <div class="header__img">
+        <img src="assets/img/perfil.jpg" alt="">
+      </div>
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+        <div>
+          <a href="#" class="nav__logo">
+            <img width="32" height="32" style="border-radius: 150px;" src="<%= bot.user.avatarURL() %>">
+            <span class="nav__logo-name" style="text-decoration: none;">
+              <%= sw.name %>
+            </span>
+          </a>
+
+          <div class="nav__list" onclick="click(2)">
+            <a href="/panel" class="nav__link active">
+              <i class='bx bx-grid-alt nav__icon'></i>
+              <span class="nav__name">Sunucu Bilgi</span>
+            </a>
+
+            <a href="/bot" class="nav__link">
+              <i class='bx bx-abacus nav__icon'></i>
+              <span class="nav__name">Bot Ayar</span>
+            </a>
+
+            <a href="/register" class="nav__link">
+              <i class='bx bx-user nav__icon'></i>
+              <span class="nav__name">Register Ayar</span>
+            </a>
+
+            <a href="/moderation" class="nav__link">
+              <i class='bx bx-hdd nav__icon'></i>
+              <span class="nav__name">Moderasyon Ayar</span>
+            </a>
+
+            <a href="/guard" class="nav__link">
+              <i class='bx bx-cctv nav__icon'></i>
+              <span class="nav__name">Guard Ayar</span>
+            </a>
+
+            <a href="/role" class="nav__link">
+              <i class='bx bx-add-to-queue nav__icon'></i>
+              <span class="nav__name">Rol Alma Ayar</span>
+            </a>
+
+            <a href="/menu" class="nav__link">
+              <i class='bx bx-food-menu nav__icon'></i>
+              <span class="nav__name">Menü Ayar</span>
+            </a>
+            <a href="/settings" class="nav__link">
+              <i class='bx bx-shield-quarter nav__icon'></i>
+              <span class="nav__name">Genel Ayar</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="/" class="nav__link">
+          <i class='bx bx-log-out nav__icon'></i>
+          <span class="nav__name">Ana sayfa</span>
+        </a>
+      </nav>
+    </div>
+
+    <!--===== MAIN JS =====-->
+    <script>
+     
+      function click(t) {
+        console.log(t)
+      }
+    </script>
+  </body>
+
+  </html>
+
+
+  <style>
+    /*===== GOOGLE FONTS =====*/
+    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+    /*===== VARIABLES CSS =====*/
+    :root {
+      --header-height: 3rem;
+      --nav-width: 75px;
+
+      /*===== Colors =====*/
+      --first-color: #4723D9;
+      --first-color-light: #AFA5D9;
+      --white-color: #F7F6FB;
+
+      /*===== Font and typography =====*/
+      --body-font: 'Nunito', sans-serif;
+      --normal-font-size: 1rem;
+
+      /*===== z index =====*/
+      --z-fixed: 100;
+    }
+
+    /*===== BASE =====*/
+    *,
+    ::before,
+    ::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      position: relative;
+      margin: var(--header-height) 0 0 0;
+      padding: 0 1rem;
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+      transition: .5s;
+    }
+
+
+    /*===== HEADER =====*/
+    .header {
+      width: 100%;
+      height: var(--header-height);
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      z-index: var(--z-fixed);
+      transition: .5s;
+    }
+
+    .header__toggle {
+      color: #0bb783;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .header__img {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      justify-content: center;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .header__img img {
+      width: 40px;
+    }
+
+    /*===== NAV =====*/
+    .l-navbar {
+      position: fixed;
+      top: 1.5%;
+      left: -200%;
+      width: var(--nav-width);
+      height: 97vh;
+      background-color: #1e1e2d;
+      padding: .5rem 1rem 0 0;
+      transition: .5s;
+      z-index: var(--z-fixed);
+      border-radius: 15px;
+    }
+
+    .nav {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .nav__logo,
+    .nav__link {
+      display: grid;
+      grid-template-columns: max-content max-content;
+      align-items: center;
+      column-gap: 1rem;
+      padding: .5rem 0 .5rem 1.5rem;
+    }
+
+    .nav__logo {
+      margin-bottom: 2rem;
+    }
+
+    .nav__logo-icon {
+      font-size: 1.25rem;
+      color: var(--white-color);
+    }
+
+    .nav__logo-name {
+      color: var(--white-color);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav__link {
+      position: relative;
+      color: var(--first-color-light);
+      margin-bottom: 1rem;
+      transition: .3s;
+      text-decoration: none;
+    }
+
+    .nav__link:hover {
+      color: var(--white-color);
+      text-decoration: none;
+    }
+
+    .nav__icon {
+      font-size: 1.25rem;
+    }
+
+    /*Show navbar movil*/
+    .show {
+      left: 0;
+    }
+
+    /*Add padding body movil*/
+    .body-pd {
+      padding-left: calc(var(--nav-width) + 1rem);
+    }
+
+
+    /* ===== MEDIA QUERIES=====*/
+    @media screen and (min-width: 768px) {
+      body {
+        margin: calc(var(--header-height) + 1rem) 0 0 0;
+        padding-left: calc(var(--nav-width) + 2rem);
+      }
+
+      .header {
+        height: calc(var(--header-height) + 1rem);
+        padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+      }
+
+      .header__img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .header__img img {
+        width: 45px;
+      }
+
+      .l-navbar {
+        left: 0;
+        padding: 1rem 1rem 0 0;
+      }
+
+      /*Show navbar desktop*/
+      .show {
+        width: calc(var(--nav-width) + 156px);
+      }
+
+      /*Add padding body desktop*/
+      .body-pd {
+        padding-left: calc(var(--nav-width) + 188px);
+      }
+    }
+  </style>
+
+  <script>
+    const showNavbar = (toggleId, navId, bodyId, headerId) => {
+      const toggle = document.getElementById(toggleId),
+        nav = document.getElementById(navId),
+        bodypd = document.getElementById(bodyId),
+        headerpd = document.getElementById(headerId)
+
+      // Validate that all variables exist
+      if (toggle && nav && bodypd && headerpd) {
+        toggle.addEventListener('click', () => {
+          // show navbar
+          nav.classList.toggle('show')
+          // change icon
+          toggle.classList.toggle('bx-x')
+          // add padding to body
+          bodypd.classList.toggle('body-pd')
+          // add padding to header
+          headerpd.classList.toggle('body-pd')
+        })
+      }
+    }
+
+    showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+
+    /*===== LINK ACTIVE  =====*/
+    const linkColor = document.querySelectorAll('.nav__link')
+
+    function colorLink() {
+      if (linkColor) {
+        linkColor.forEach(l => l.classList.remove('active'))
+        this.classList.add('active')
+      }
+    }
+    linkColor.forEach(l => l.addEventListener('click', colorLink))
+  </script>

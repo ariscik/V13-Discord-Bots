@@ -1,0 +1,145 @@
+<% let sw=global.client.guilds.cache.get(config.guildID) %>
+
+    <%- include('../ek/header.ejs', {bot, user}) %>
+
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+
+
+                <div class="box">
+                    <label for="inputState">
+                        <%= sw.name %>
+                    </label>
+                    <br>
+                    <label for="inputState" style="font-size: 15px;">Bu menüden sunucuyla ilgili tüm ayarları açıp kapatabilirsiniz!</label>
+                    <hr color="white">
+                    <div class="cont">
+                    <label for="inputState">Server Guard</label>
+                    <br>
+                    <% if (arislesnar.serverGuard == true) {%>
+                        <button type="submit" id="button">Kapat!</button>
+                        <%} else {%>
+                    <button type="submit" id="button">Aç!</button>
+                    <%}%>
+
+                    <br><br>
+                    <label for="inputState">Channel Guard</label>
+                    <br>
+                    <% if (arislesnar.channelGuard == true) {%>
+                        <button type="submit" id="button">Kapat!</button>
+                        <%} else {%>
+                    <button type="submit" id="button">Aç!</button>
+                    <%}%>
+
+                    <br><br>
+                    <label for="inputState">Role Guard</label>
+                    <br>
+                    <% if (arislesnar.roleGuard == true) {%>
+                        <button type="submit" id="button">Kapat!</button>
+                        <%} else {%>
+                    <button type="submit" id="button">Aç!</button>
+                    <%}%>
+                </div>
+            </div>
+            <div class="cont cont-div">
+                <label for="inputState">URL Guard</label>
+                <br>
+                <% if (arislesnar.urlGuard == true) {%>
+                    <button type="submit" id="button">Kapat!</button>
+                    <%} else {%>
+                <button type="submit" id="button">Aç!</button>
+                <%}%>
+                <br><br>
+                <label for="inputState">Taç Guard</label>
+                <br>
+                <% if (arislesnar.tacGuard == true) {%>
+                    <button type="submit" id="button">Kapat!</button>
+                    <%} else {%>
+                <button type="submit" id="button">Aç!</button>
+                <%}%>
+            </div>
+
+            </div>
+        </div>
+
+        <style>
+            .box label, .cont label {
+                color: white;
+                font-size: 25px;
+            }
+
+            .cont {
+                float:left;
+                width: 500px;
+                align-items: center;
+            }
+
+            .cont-div {
+                position: relative;
+                left: 300px;
+                bottom: 380px;
+            }
+
+            .box {
+                width: 1000px;
+                float: left;
+                height: 500px;
+                padding: 20px;
+                background: #1e1e2d;
+                border-radius: 15px;
+                margin: 10px;
+                text-align: center;
+            }
+
+            #button {
+                border: 0;
+                width: 150px;
+                height: 35px;
+                border-radius: 150px;
+                position: relative;
+                background: #0bb783;
+                cursor: pointer;
+                line-height: 20px;
+                color: rgba(235, 235, 235, 1);
+            }
+
+            #button:before {
+                content: '';
+                z-index: 1;
+                position: absolute;
+                display: block;
+                width: 80%;
+                height: 70%;
+                top: 15%;
+                left: 10%;
+                transition: 0.3s opacity ease-in-out;
+                filter: blur(15px);
+                opacity: 0;
+                background: linear-gradient(to top right, rgb(20, 82, 82) 0%, rgb(18, 126, 90) 100%);
+                color: rgba(235, 235, 235, 1);
+            }
+
+            #button:hover:before {
+                opacity: 1;
+                transition: 0.3s opacity ease-in-out;
+                filter: blur(25px);
+                background: linear-gradient(to top right, rgb(20, 82, 82) 0%, rgb(18, 126, 90) 100%);
+            }
+
+            #button:after {
+                text-align: center;
+                line-height: 40px;
+                font-size: 18px;
+                color: rgba(235, 235, 235, 1);
+                font-weight: bold;
+                z-index: 5;
+                position: absolute;
+                display: block;
+                border-radius: 180px;
+                width: 92%;
+                height: 80%;
+                top: 2%;
+                left: 4%;
+                color: white;
+            }
+        </style>

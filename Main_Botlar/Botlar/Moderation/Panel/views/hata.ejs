@@ -1,0 +1,383 @@
+<html>
+
+<head>
+  <meta name="description" content="Narcos Code Genel V5 Huzurlarınızla Sunar...">
+
+  <meta name="keyword" content="Narcos Code, Mustafa Mert, Discord Bot, Discord, Narcos Code Genel V5">
+
+  <meta name="author" content="Narcos Code Genel V5">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/genel.css" />
+  <link rel="icon"
+    href="https://cdn.discordapp.com/icons/760590308869406751/a_b949627c5492f7b80991e52f4d2f7c9c.gif?size=1024"
+    type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/18babed95f.js"></script>
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#101320;text-decoration:none;">
+    <a class="navbar-brand" href="/" style="font-family: 'Quicksand', sans-serif"><img
+        src="https://cdn.discordapp.com/avatars/311517508601380865/ca6568f37dc819f8b43ff735297ae5b1.png?size=1024"
+      style="border-radius:50%;width:37px;height:37px"> Aris Lesnar Web Panel
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/" style="font-family: 'Quicksand', sans-serif"><i style="color: #0561ff;"
+            class="fas fa-home"></i> AnaSayfa</a>
+      </li>
+      <a class="nav-link" href="/bilgi" style="font-family: 'Quicksand', sans-serif"><i style="color: #0561ff;"
+          class="fas fa-info-circle"></i> Bot Paketleri</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <% if (!user) { %>
+        <a class="btn btn-primary" href="/login" style="background-color: #7bdff2; color: black;font-family: -apple-system,BlinkMacSystemFont," Segoe
+          UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI
+          Symbol","Noto Color Emoji"">
+          <i class="fas fa-sign-in-alt"></i> Panele Giriş Yap
+        </a>
+        <% }else{ %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+              style="font-family: 'Quicksand', sans-serif" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <%= user.username%>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink"
+              style="background:#343a40; color:#cddafd;border-color: #3d4349;font-family: 'Quicksand', sans-serif;">
+              <a class="dropdown-item" href="/profile/<%=user.id%>" style="color:#cddafd"><i
+                  class="fas fa-address-card"></i> Profil</a>
+              <% if(global.config.Founders.includes(user.id)) { %>
+                <a class="dropdown-item" href="/admin" style="color:#cddafd"><i class="fas fa-user-shield"></i> Admin
+                  Panel</a>
+                <% } %>
+                  <a class="dropdown-item" href="/logout" style="color:RED"><i class="fas fa-sign-out-alt"></i> Çıkış
+                    yap</a>
+            </div>
+          </li>
+          <% } %>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .rainbow {
+    text-align: left;
+    font-size: 16px;
+    animation: colorRotate 4s linear 0.1s infinite;
+  }
+
+  @keyframes colorRotate {
+    from {
+      color: #6666ff;
+    }
+
+    10% {
+      color: #0099ff;
+    }
+
+    50% {
+      color: #00ff00;
+    }
+
+    75% {
+      color: #ff3399;
+    }
+
+    100% {
+      color: #6666ff;
+    }
+  }
+
+  .rainbowicon {
+    text-align: left;
+    font-size: 16px;
+    animation: colorRotate2 4s linear 0.1s infinite;
+  }
+
+  @keyframes colorRotate2 {
+    from {
+      border: 4px solid #6666ff;
+    }
+
+    10% {
+      border: 4px solid #0099ff;
+    }
+
+    50% {
+      border: 4px solid #00ff00;
+    }
+
+    75% {
+      border: 4px solid #ff3399;
+    }
+
+    100% {
+      border: 4px solid #6666ff;
+    }
+  }
+
+  .bg {
+    background-color: #191d2f;
+    padding: 0;
+  }
+</style>
+
+</html>
+<script LANGUAGE='JavaScript'>
+
+  var default1 = "Aris Lesnar"; // Genel başlık
+  var text1 = "Web Panel"; // 1. Yazı
+  var text2 = "Aris - Web Panel"; // 2. Yazı
+  var text3 = "ALT Sistemleri"; // 3. Yazı
+  var text4 = "İletişim İçin Aris Lesnar"; // 4. Yazı
+  var changeRate = 2000; // Zaman ayarı [1000 = 1 Saniye]
+  var messageNumber = 0;
+
+  function changeStatus() {
+    if (messageNumber == 0) {
+      window.status = default1;
+      document.title = default1;
+    }
+    else if (messageNumber == 1) {
+      window.status = text1;
+      document.title = text1;
+    }
+    else if (messageNumber == 2) {
+      window.status = text2;
+      document.title = text2;
+    }
+    else if (messageNumber == 3) {
+      window.status = text3;
+      document.title = text3;
+    }
+    else if (messageNumber == 4) {
+      window.status = text4;
+      document.title = text4;
+      messageNumber = 0;
+    }
+
+    messageNumber++;
+    setTimeout("changeStatus();", changeRate);
+
+  }
+
+  changeStatus();
+</SCRIPT>
+
+<body
+  background="https://cdn.discordapp.com/attachments/852622377783394315/881143356200210442/eHBhY2tldCBlbmQ9J3InPz4cLOSUAAAAAElFTkSuQmCC.png">
+
+</body>
+<center>
+  <div class="anasyf-rsm" style="background-image: url(); background-size: cover;
+ width: 100%; min-height: 50%; max-height: 85%;">
+    <br> <br>
+    <div class="container">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-12">
+          <img width="164" height="164" style="border-radius: 150px;"
+            src="https://cdn.discordapp.com/avatars/311517508601380865/ca6568f37dc819f8b43ff735297ae5b1.png?size=1024">
+        </div>
+        <div class="col-md-12">
+          <br>
+          <h3 class="anasyfa-txt" style="color: #0af6ff; font-family: 'Quicksand', black; font-size: 35px;">
+            <b><strong>HATA! SİSTEME ERİŞMEK İÇİN GİRİŞ YAPMANIZ GEREKMEKTE!</strong> </b>
+          </h3>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</center>
+
+<script data-ad-client="ca-pub-3602939204447937" async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<style>
+  .anasyfa-txt {
+    text-shadow:
+      0 0 5px #00ff8b,
+      0 0 10px #00ff8b;
+  }
+
+  .kts {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    opacity: 0.4;
+  }
+
+
+  .div {
+    width: 100px;
+    height: 44px;
+    border-radius: 6px;
+  }
+
+  .cloudy {
+    position: relative;
+    background: linear-gradient(to top right, rgba(63, 81, 181, 1) 0%, rgba(3, 155, 229, 1) 40%);
+    box-shadow: 1px 1px 30px rgba(2, 119, 189, 1);
+  }
+
+
+  .kuckkutu {
+    width: 128px;
+    height: 128px;
+    padding: 10px;
+    background: rgba(87, 87, 255, 0.4);
+    border-radius: 15px;
+    margin: 10px;
+  }
+
+  .kutu {
+    width: 350px;
+    height: 350px;
+    padding: 10px;
+    background: rgba(0, 125, 255, 0.2);
+    border-radius: 15px;
+    margin: 10px;
+  }
+
+  .copy-box {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    width: 340px;
+    color: #fff;
+    font-family: sans-serif;
+    padding: 20px;
+  }
+
+  .copy-box .line {
+    position: absolute;
+    background-color: aqua;
+    box-shadow: 0px 0px 12px aqua;
+    width: 4px;
+    height: calc(100% - 20px);
+    top: 10px;
+    left: 22px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .copy-box.two .line {
+    border-radius: 0;
+    width: 2px;
+  }
+
+  .copy-box .line .scanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    height: 20px;
+    border-radius: 50%;
+    animation: scanner-loop 3s ease-in-out infinite;
+  }
+
+  .copy-box.two .line .scanner {
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    height: 50%;
+  }
+
+  @keyframes scanner-loop {
+    0% {
+      top: 0;
+    }
+
+    50% {
+      top: 100%;
+    }
+
+    100% {
+      top: 0;
+    }
+  }
+
+  .copy-box .inner {
+    padding: 30px;
+  }
+
+  #testbutton {
+    width: 150px;
+    height: 50px;
+    border-radius: 180px;
+    position: relative;
+    left: calc(50% - 75px);
+    top: calc(10% - 25px);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    cursor: pointer;
+    line-height: 12px;
+  }
+
+  #testbutton:before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    display: block;
+    width: 80%;
+    height: 70%;
+    top: 15%;
+    left: 10%;
+    transition: 0.3s opacity ease-in-out;
+    filter: blur(15px);
+    opacity: 0;
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  }
+
+  #testbutton:hover:before {
+    opacity: 1;
+    transition: 0.3s opacity ease-in-out;
+    filter: blur(25px);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  }
+
+  #testbutton:after {
+    content: 'DİSCORD';
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    color: rgba(235, 235, 235, 1);
+    font-weight: bold;
+    z-index: 5;
+    position: absolute;
+    display: block;
+    border-radius: 180px;
+    width: 92%;
+    height: 80%;
+    top: 10%;
+    left: 4%;
+  }
+</style>

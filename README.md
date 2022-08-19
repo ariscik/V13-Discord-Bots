@@ -2,6 +2,8 @@
 
 !! APTAL SAPTAL İNSANLARIN REPOLARINDAN ARİS LESNAR BOTS DİYEREK İNDİRİP RAT YEMEYİN DİYE PAYLAŞIYORUM TEPE TEPE KULLANIN AMK BOTUNU !!
 
+- Unutmadan botu ilk açınca .setup banhammer @ban yazın sonra .setup yazıp kontrol edebilirsiniz. Bunun çözümü çok basit hemen halledilir ama bu botta uğraşmadım çünkü baya eski botum çözümünü isteyen dc gelsin söyleyeyim öpüldünüz
+
 # Npm i yaz bekle sonra npm start yaz kullan bunu yapamıyorsan bana yazma aq
 
 # Botun içindeki bazı özellikler;

@@ -9,7 +9,6 @@ class YSay extends Command {
     }
     async run(client, message, args, embed) {
         const aris = await ariscik.findOne({ guildID: message.guild.id })
-        if (!["961734572599558164","961734580421951489"].some(x => message.member.roles.cache.has(x)) && !config.Founders.includes(message.author.id) && !config.root.includes(message.author.id) && !aris.yonetimRoles.some(rol => message.member.roles.cache.has(rol)) && !message.member.permissions.has("ADMINISTRATOR")) return message.channel.send({ embeds: [embed.setDescription(`**UYARI :** Bu komutu kullanabilmek için yeterli yetkiye sahip değilsin!`)] }).sil(15)
         var yetkilisayısı = message.guild.members.cache.filter(yetkili => yetkili.roles.cache.has(aris.registerHammer)).size
         var sesdekiler = message.guild.members.cache.filter(yetkili => yetkili.roles.cache.has(aris.registerHammer)).filter(yetkilises => yetkilises.voice.channel).size
         var atkifler = message.guild.members.cache.filter(yetkili => yetkili.roles.cache.has(aris.registerHammer) && yetkili.presence && yetkili.presence.status !== "offline").size

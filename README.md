@@ -1,5 +1,7 @@
 # V13 ARIS LESNAR BOTS
 
+https://www.youtube.com/channel/UCJS54jd_LuiqTeWf1qin9fg
+
 !! APTAL SAPTAL İNSANLARIN REPOLARINDAN ARİS LESNAR BOTS DİYEREK İNDİRİP RAT YEMEYİN DİYE PAYLAŞIYORUM TEPE TEPE KULLANIN AMK BOTUNU !!
 
 - Unutmadan botu ilk açınca .setup banhammer @ban yazın sonra .setup yazıp kontrol edebilirsiniz. Bunun çözümü çok basit hemen halledilir ama bu botta uğraşmadım çünkü baya eski botum çözümünü isteyen dc gelsin söyleyeyim öpüldünüz
